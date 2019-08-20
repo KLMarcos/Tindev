@@ -30,7 +30,7 @@ export default function Main({ match }){
     }, [match.params.id])
     
     useEffect(() => {
-        const socket = io('https://tindev-omnistack8.herokuapp.com', {
+        const socket = io('https://tindev-omnistack8.herokuapp.com/', {
             query: {
                 user: match.params.id
             }
@@ -95,7 +95,7 @@ export default function Main({ match }){
             )}
 
             { matchDev && (
-                <div className='match-container'>
+                <div className='match-container' onClick={() => {setMatchDev(null)}}>
                     <img src={itsamatch} alt="It's a match"/>
 
                     < img className = 'avatar'
