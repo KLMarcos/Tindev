@@ -30,7 +30,7 @@ export default function Main({ match }){
     }, [match.params.id])
     
     useEffect(() => {
-        const socket = io('https://tindev-omnistack8.herokuapp.com/', {
+        const socket = io('https://tindev-omnistack8.herokuapp.com', {
             query: {
                 user: match.params.id
             }

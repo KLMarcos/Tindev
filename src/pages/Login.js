@@ -7,14 +7,27 @@ import logo from './../assets/logo.svg';
 
 export default function Login({ history }) {
     const [username, setUsername] = useState('');
-    
-    async function handleSubmit(e){
+    const [searchID, setSearchID] = useState(null);
+
+    async function handleSubmit(e) {
         e.preventDefault();
 
-        const response = await api.post('/devs', {username});
-        const { _id } = response.data;
-        
-        history.push(`/dev/${_id}`);
+        setSearchID(username);
+
+        try {
+            const response = await api.post('/devs', {
+                username
+            });
+
+            const {
+                _id
+            } = response.data;
+
+            history.push(`/dev/${_id}`);
+        } catch (error) {
+            setSearchID(null);
+            return;
+        }
     }
 
     return (
@@ -26,7 +39,21 @@ export default function Login({ history }) {
                     value = {username}
                     onChange = {e => setUsername(e.target.value)}
                 />
-                <button type="submit">Enviar</button>
+                <button type="submit">
+                    {
+                        searchID ? (
+                            <div className="loading-container">
+                                <div className="lds-flickr">
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                </div>   
+                            </div>
+                        ) : (
+                            <p>Enviar</p>
+                        )
+                    }
+                </button>
             </form>
         </div>
     );

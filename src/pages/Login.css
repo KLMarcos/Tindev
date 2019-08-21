@@ -1,18 +1,18 @@
-.login-container{
+.login-container {
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.login-container form{
+.login-container form {
     width: 100%;
     max-width: 300px;
     display: flex;
     flex-direction: column;
 }
 
-.login-container form input{
+.login-container form input {
     margin-top: 20px;
     border: 2px solid #02385a;
     border-radius: 4px;
@@ -23,19 +23,157 @@
     color: #fff;
 }
 
-.login-container form input::placeholder{
+.login-container form input::placeholder {
     color: #999;
 }
 
-.login-container form button{
+.login-container form button {
     margin-top: 10px;
     border: 0;
     border-radius: 4px;
     height: 48px;
-    font-size: 16px;
     background: #024872;
-    /* background-color: #df4723; */
-    font-weight: bold;
     cursor: pointer;
+}
+
+.login-container form button {
+    font-size: 16px;
+    font-weight: bold;
     color: white;
+}
+
+.loading-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+@keyframes lds-flickr-opacity {
+    0% {
+        -webkit-transform: translate(0 0);
+        transform: translate(0 0);
+        opacity: 1;
+    }
+
+    49.99% {
+        opacity: 1;
+        -webkit-transform: translate(80px, 0);
+        transform: translate(80px, 0);
+    }
+
+    50% {
+        opacity: 0;
+        -webkit-transform: translate(80px, 0);
+        transform: translate(80px, 0);
+    }
+
+    100% {
+        opacity: 0;
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0);
+    }
+}
+
+@-webkit-keyframes lds-flickr-opacity {
+    0% {
+        -webkit-transform: translate(0 0);
+        transform: translate(0 0);
+        opacity: 1;
+    }
+
+    49.99% {
+        opacity: 1;
+        -webkit-transform: translate(80px, 0);
+        transform: translate(80px, 0);
+    }
+
+    50% {
+        opacity: 0;
+        -webkit-transform: translate(80px, 0);
+        transform: translate(80px, 0);
+    }
+
+    100% {
+        opacity: 0;
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes lds-flickr {
+    0% {
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0);
+    }
+
+    50% {
+        -webkit-transform: translate(80px, 0);
+        transform: translate(80px, 0);
+    }
+
+    100% {
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0);
+    }
+}
+
+@-webkit-keyframes lds-flickr {
+    0% {
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0);
+    }
+
+    50% {
+        -webkit-transform: translate(80px, 0);
+        transform: translate(80px, 0);
+    }
+
+    100% {
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0);
+    }
+}
+
+.lds-flickr {
+    position: relative;
+    align-content: center;
+}
+
+.lds-flickr div {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    top: 60px;
+    left: 20px;
+}
+
+.lds-flickr div:nth-child(1) {
+    background: #d8cfcf;
+    -webkit-animation: lds-flickr 1s linear infinite;
+    animation: lds-flickr 1s linear infinite;
+    -webkit-animation-delay: -0.5s;
+    animation-delay: -0.5s;
+}
+
+.lds-flickr div:nth-child(2) {
+    background: #0e283f;
+    -webkit-animation: lds-flickr 1s linear infinite;
+    animation: lds-flickr 1s linear infinite;
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+}
+
+.lds-flickr div:nth-child(3) {
+    background: #d8cfcf;
+    -webkit-animation: lds-flickr-opacity 1s linear infinite;
+    animation: lds-flickr-opacity 1s linear infinite;
+    -webkit-animation-delay: -0.5s;
+    animation-delay: -0.5s;
+}
+
+.lds-flickr {
+    width: 50px !important;
+    height: 50px !important;
+    -webkit-transform: translate(-25px, -25px) scale(0.25) translate(25px, 25px);
+    transform: translate(-25px, -25px) scale(0.25) translate(25px, 25px);
 }
